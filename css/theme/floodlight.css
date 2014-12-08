@@ -210,7 +210,26 @@ body {
   margin-right: 0;
 }
 
-.reveal section:first-child p img {
+.reveal section:first-child p img, .reveal section:last-child p img{
   float: none;
   margin: auto;
+}
+
+.program-button {
+  font-size: 18px;
+  background: white;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  padding: 0.1em 0.5em;
+  margin-bottom: 1em;
+  float: left;
+  margin-right: 1em;
+}
+
+#program-build {
+  float: right;
+  margin-right: 0;
+  background: #0af;
+  color: white;
+  border-color: #09d;
 }

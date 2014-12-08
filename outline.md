@@ -1,58 +1,31 @@
-- Intro
-  - A note about slides/vimdeck
-    - Link to slides
-  - Who I am - links
-    - Name
-    - I work at Adobe
-    - jQuery Mobile
-  - Why I'm here
-    - WebPro
-  - What I'm talking about
-    - Overview
-    - UI patterns: identify, and abstract
-    - Decoupling HTML, CSS, and JS
-    - Previous methods: good and bad
-    - Best practices for reusable Javascript
-    - Disclaimer
-      - Writing custom components is time-consuming
-      - We'll cover what to look for if you don't have time
+- Want to talk about code - how it effects your lives
+- What sorts of things you use everyday that are run by code
 
-- UI Patterns
-  - Understanding what makes up parts of user interface
-  - Once you grab this, you can make abstractions that will impact code organization
-  - Examples: Slider, Number Spinner, Tabs, Accordion, Radial Menu (_browser_)
-  - *Code* for tabs
-  - *Code* for radial menu
+Ex:
+- Facebook -> show code
+- Minecraft -> show code
+- Voice -> show code
+  - Today I went to Hickman Charter School to help out with a very special
+    event.
+  - The Hour of Code
+  - We talked a lot about software and how we use things that run on code every
+    day
+  - Then the kids got to try some excercises that introduced them to coding
+  - And great fun was had by all
 
-- The need to decouple
-  - Separation of concerns
-  - HTML is structure
-  - CSS is style
-  - JS is interaction/behavior
-  - Style happens only in CSS classes
-  - Animation in CSS only
-  - JS can be independent of structure
-  - Simple *code* example showing separation
+Ex 2:
+- Car
+- Explain how arduino works
+- Explain how each pattern works
 
-- The JS
-  - Show example first
-  - Black box
-  - Framework-based
-  - Options
-    - Loads of em!
-    - Behavior
-    - Class Names
-    - Selectors
-  - Events: communications -> extension
-  - *Code* sample with options, and events (_browser_)
-  - Second *code* sample using options (_browser_)
-  - Third *code* sample using events (_browser_)
-  - Inheritance
-    - Take advantage of patterns
-    - Provide basic initialization
+Demo:
+- Now it's time to improvise.
+- Volunteer - We're going to write a program that
+  will help the car get from here to there.
+- We only have these three commands to work with and the delay is set
+- Meaning when you tell the car to turnLeft, it will make an exact 90º turn.
 
-- Closing
-  - Git repo of samples/library
-    - For messing with only
-  - Hit me up on twitter if you have any questions
-  - Thanks!
+Rest of the time:
+- We are going to write some code
+- Some of you may not write code with a computer today, but you'll still be
+  learning how computers work

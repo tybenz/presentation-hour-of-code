@@ -3,10 +3,12 @@
 
   <head>
     <meta charset="utf-8">
+    <link rel="shortcut icon" href="images/codeorg.png" title="" type="icon" />
 
-    <title>JS Legos: Reusable UI Components in JavaScript</title>
+    <title>Hour Of Code</title>
 
     <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+
     <meta name="author" content="Hakim El Hattab">
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -36,13 +38,113 @@
 
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
-        <section data-markdown="reveal.md" data-separator="^\n\n" data-notes="^Note:" data-charset="iso-8859-15"></section>
+        <section>
+          <p>
+            <img src="images/codeorg.png" alt="" />
+          </p>
+        </section>
+
+        <section>
+          <h1>Fetch</h1>
+          <h1>Read</h1>
+          <h1>Execute</h1>
+        </section>
+
+        <section>
+          <h1>Carduino</h1>
+          <p>
+            <img src="images/car1.gif" alt="" />
+            <img src="images/car2.gif" alt="" />
+          </p>
+        </section>
+
+        <section>
+          <h1>Square</h1>
+          <p>
+            <img src="images/car1.gif" alt="" />
+          </p>
+
+          <pre><code class="cpp">delay = 0.5;
+
+void loop() {
+    moveForward();
+    turnLeft();
+}</code></pre>
+        </section>
+
+        <section>
+          <h1>Spin</h1>
+          <p>
+            <img src="images/car2.gif" alt="" />
+          </p>
+
+          <pre><code class="cpp">delay = 0;
+
+void loop() {
+    turnRight();
+}</code></pre>
+        </section>
+
+        <section>
+          <h1>Circle</h1>
+          <p>
+            <img src="images/car3.gif" alt="" />
+          </p>
+
+          <pre><code class="cpp">delay = 0.1;
+
+void loop() {
+    moveForward();
+    turnLeft();
+}</code></pre>
+        </section>
+
+        <section>
+          <h1>Letter "P"</h1>
+          <p>
+            <img src="images/car4.gif" alt="" />
+          </p>
+
+          <pre><code class="cpp">delay = 0.5;
+
+moveForward();
+moveForward();
+moveForward();
+turnRight();
+moveForward();
+moveForward();
+turnRight();
+moveForward();
+turnRight();
+moveForward();
+turnLeft();
+moveForward();
+moveForward();</code></pre>
+        </section>
+
+        <section>
+          <h2>Your turn!</h2>
+          <button class="program-button" id="program-build">Build</button>
+          <button class="program-button" id="program-move-forward">Move Forward</button>
+          <button class="program-button" id="program-turn-right">Turn Right</button>
+          <button class="program-button" id="program-turn-left">Turn Left</button>
+          <p>
+            <textarea id="program-text" style="box-sizing: border-box;padding: 15px;outline: none;font-family: 'Ubuntu Mono derivative Powerline', monospace;font-size: 1em;width: 960px;height: 480px;"></textarea>
+          </p>
+        </section>
+
+        <section>
+          <p>
+            <img src="images/codeorg.png" alt="" />
+          </p>
+        </section>
       </div>
 
     </div>
 
     <script src="lib/js/head.min.js"></script>
     <script src="js/reveal.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 
     <script>
 
@@ -61,15 +163,11 @@
       dependencies: [
         { src: 'lib/js/jquery.min.js' },
         { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-        { src: 'plugin/highlight/highlight.js', callback: function() {}},
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
         { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
         { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); }, callback: function() {
           console.log(document.querySelectorAll('pre'));
 
-          $( 'code' ).each( function() {
-            console.log(this);
-            hljs.highlightBlock( this );
-          });
 
           $( "pre" ).html(function( i, string ) {
             // replace the hilight markers with spans
@@ -80,6 +178,47 @@
         }},
         { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
       ]
+    });
+
+    $('#program-move-forward').on( 'click', function() {
+      var text = $('#program-text').val();
+      $('#program-text').val( text + (text === '' ? '' : '\n') + 'moveForward();');
+    });
+
+    $('#program-turn-right').on( 'click', function() {
+      var text = $('#program-text').val();
+      $('#program-text').val( text + (text === '' ? '' : '\n') + 'turnRight();');
+    });
+    
+    $('#program-turn-left').on( 'click', function() {
+      var text = $('#program-text').val();
+      $('#program-text').val( text + (text === '' ? '' : '\n') + 'turnLeft();');
+    });
+
+    $('#program-build').on('click', function() {
+      $.ajax({
+        type: 'post',
+        url: 'http://localhost:8080/write',
+        data: JSON.stringify({ program: $('#program-text').val().replace(/^\s*/, '').replace(/\s*$/, '') }),
+        contentType: 'application/json; charset=utf-8',
+        success: function( response ) {
+          $.ajax({
+            type: 'post',
+            url: 'http://localhost:8080/upload',
+            data: JSON.stringify({ program: $('#program-text').val().replace(/^\s*/, '').replace(/\s*$/, '') }),
+            contentType: 'application/json; charset=utf-8',
+            success: function( response ) {
+              alert( 'BOOM!' );
+            },
+            failure: function( errMsg ) {
+              console.log( errMsg );
+            }
+          });
+        },
+        failure: function( errMsg ) {
+          console.log( errMsg );
+        }
+      });
     });
 
     </script>
