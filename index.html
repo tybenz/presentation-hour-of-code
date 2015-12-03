@@ -129,7 +129,34 @@ moveForward();</code></pre>
           <button class="program-button" id="program-turn-right">Turn Right</button>
           <button class="program-button" id="program-turn-left">Turn Left</button>
           <p>
-            <textarea id="program-text" style="box-sizing: border-box;padding: 15px;outline: none;font-family: 'Ubuntu Mono derivative Powerline', monospace;font-size: 1em;width: 960px;height: 480px;"></textarea>
+            <textarea id="program-text" style="box-sizing: border-box;padding: 15px;outline: none;font-family: 'Ubuntu Mono derivative Powerline', monospace;font-size: 0.8em;width: 960px;height: 480px;"></textarea>
+          </p>
+        </section>
+
+        <section>
+          <p>
+            <textarea id="program-text-2" style="box-sizing: border-box;padding: 15px;outline: none;font-family: 'Ubuntu Mono derivative Powerline', monospace;font-size: 0.8em;width: 960px;height: 680px;">long toTheLeft, toTheRight;
+long inFront = ping(FRONT);
+
+if (inFront > 12) {
+    car->moveForward();
+} else {
+    stop();
+
+    delay(1);
+    toTheRight = ping(RIGHT);
+    delay(1);
+    toTheLeft = ping(LEFT);
+    if (toTheLeft > 12) {
+        turnLeft();
+    } else if (toTheRight > 12) {
+        turnRight();
+    } else {
+        // turnaround
+        turnLeft();
+        turnLeft();
+    }
+}</textarea>
           </p>
         </section>
 
