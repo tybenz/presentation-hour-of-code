@@ -2,21 +2,16 @@
 - What sorts of things you use everyday that are run by code
 
 Ex:
-- Facebook -> show code
+- Google -> show code
 - Minecraft -> show code
-- Voice -> show code
-  - Today I went to Hickman Charter School to help out with a very special
-    event.
-  - The Hour of Code
-  - We talked a lot about software and how we use things that run on code every
-    day
-  - Then the kids got to try some excercises that introduced them to coding
-  - And great fun was had by all
+- Slate -> show code
+  https://slate.adobe.com/cp/FuLyc/
+  https://slate.adobe.com/#design/slate/56687cd4-a163-401f-a8ed-cf2e5afb251b
 
 Ex 2:
-- Car
-- Explain how arduino works
-- Explain how each pattern works
+- Lego maze
+- We are going to use simple instructions to tell our lego guy what to do
+- These instructions are like the code that people write for computers
 
 Demo:
 - Now it's time to improvise.

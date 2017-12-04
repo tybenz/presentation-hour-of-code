@@ -196,7 +196,7 @@ body {
 .reveal p {
   margin-bottom: 0.8em; }
 
-.reveal section img {
+.reveal section .img {
   max-width: 470px;
   height: 470px;
   float: left;
