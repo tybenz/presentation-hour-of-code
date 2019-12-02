@@ -1,6 +1,11 @@
 - Want to talk about code - how it effects your lives
 - What sorts of things you use everyday that are run by code
 
+- Websites
+- Video games
+- Microwaves
+- Light-up shoes
+
 Ex:
 - Google -> show code
 - Minecraft -> show code
