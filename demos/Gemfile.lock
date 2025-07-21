@@ -5,7 +5,7 @@ GEM
       sass (>= 3.2.0)
       thor
     sass (3.2.12)
-    thor (0.18.1)
+    thor (1.4.0)
 
 PLATFORMS
   ruby
